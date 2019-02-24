@@ -3,7 +3,7 @@
 
 The goal of this project is to quickly enable you to mine Monero without the hassle of knowing how to install or secure your mining software. 
 
-Using an [Alpine Linux](https://www.alpinelinux.org/) container you get a very lightweight image ~4MB and the benefit of Alpine Linux's security model. bitn configured the original image to run the miner as a dedicated restricted user. Latest release was not up to date and as a consequence the monero pools would return "Low difficulty share" and reject results.
+Using an [Alpine Linux](https://www.alpinelinux.org/) container you get a very lightweight image ~4MB and the benefit of Alpine Linux's security model. b-i-t-n configured the original image to run the miner as a dedicated restricted user. Latest release was not up to date and as a consequence the monero pools would return "Low difficulty share" and reject results.
 
 This builds fixes the "Low difficulty share" however TLS is not supported. 
 This build has been made by and for contentera.io project within the scope of Innoviris START program. 
