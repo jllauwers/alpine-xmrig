@@ -1,4 +1,4 @@
-# contentera-xmrig
+# alpine-xmrig ( or contentera-xmrig )
 [XMRig miner](https://github.com/xmrig/xmrig) in an Alpine Linux Docker image.
 
 The goal of this project is to quickly enable you to mine Monero without the hassle of knowing how to install or secure your mining software. 
