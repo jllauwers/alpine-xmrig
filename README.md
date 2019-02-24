@@ -8,9 +8,11 @@ I have also configured this image to run the miner as a dedicated  restricted us
 
 # How to use
 ```bash
-# docker run --restart unless-stopped --read-only -m 50M -c 512 bitnn/alpine-xmrig -o POOL01 -o POOL02 -u WALLET -p PASSWORD -k
-# docker run --restart unless-stopped --read-only -m 50M -c 512 bitnn/alpine-xmrig -o pool.supportxmr.com:7777 -o xmr-eu.dwarfpool.com:8005 -u 45CJVagd6WwQAQfAkS91EHiTyfVaJn12uM4Su8iz6S2SHZ3QthmFM9BSPHVZY388ASWx8G9Wbz4BA24RQZUpGczb35fnnJz -p x -k
+# docker run --restart unless-stopped --read-only -m 50M jllauwers/contentera-xmrig -l xmr-default.log --donate-level=1 --max-cpu-usage 50 -o %POOL% -u %WALLET%
 ```
+
+Please refer to [xmrig documentation](https://github.com/xmrig/xmrig) for complete options list. 
+
 ## Docker Arguments
 `--restart unless-stopped`
 
@@ -25,27 +27,18 @@ If there are bug/exploits in the pool/software you are a little more protected.
 
 Restricts memory usage to 50MB.
 
-`-c 512`
+`--donate-level=1`
 
-By default XMRig will use <= half of your cores.
-Setting a relevant share count will protect you from a runaway process locking your system.
+By default XMRig allocates 5% of the mining operations (time) to the project owner (xmrig). Here the donate level is set to 1% (the minimum). 
+
+`--max-cpu-usage=50`
+
+Maximum CPU usage
 
 ## XMRig Arguments
 `--help`
 
 All standard XMRig arguments are supported, using `--help` will list all of them.
 ```bash
-# docker run bitnn/alpine-xmrig --help
+# docker run bjllauwers/contentera-xmrig --help
 ```
-`-t` 
-
-When manually setting threads with `-t` you need to configure the correct CPU shares for docker.
-
-IE if you have 4 cores each core is worth 256 `( 1024 / 4 )` and so to use 3 threads, CPU shares will need to be set to 756.
-```bash
-# docker run -c 756 bitnn/alpine-xmrig ... -t 3
-```
-
-# Donations & Contact
-XMR: `45CJVagd6WwQAQfAkS91EHiTyfVaJn12uM4Su8iz6S2SHZ3QthmFM9BSPHVZY388ASWx8G9Wbz4BA24RQZUpGczb35fnnJz`
-Bitmessage: `BM-2cTMMrCkaG2m4r9ZYx7dAqRLY7zZN2nwUe`
